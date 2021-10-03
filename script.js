@@ -21,7 +21,7 @@ loadSongs(songs[songIndex])
 function loadSongs(song) {
     title.innerText = song;
     audio.src = `music/${song}.mp3`
-    cover.src = `images/${song}.jpg`
+    // cover.src = `images/${song}.jpg`
 }
 
 function playSong() {
@@ -62,13 +62,13 @@ function nextSong() {
     playSong();
 }
 
-function updateProgress() {
-    const { duration, currentTime } = e.Element
-    const progressPercentage = (currentTime / duration) * 100;
-    progress.style.width = `${progressPercentage}%`;
+function updateProgress(e) {
+    const { duration, currentTime } = e.srcElement
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
 }
 
-function setProgress() {
+function setProgress(e) {
     const width = this.clientWidth
     const clickX = e.offsetX;
     const duration = audio.duration
